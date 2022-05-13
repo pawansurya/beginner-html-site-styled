@@ -1,0 +1,22 @@
+pipeline {
+    agent any
+    stages { 
+        stage('Gitcheckout') {
+            steps {
+                git 'https://github.com/pawansurya/beginner-html-site-styled.git'
+            }
+        }
+    stage('Build') {
+            steps {
+                sh '''sudo chmod 777 /var/www/html/
+                sudo cp -Rf . /var/www/html/
+                sudo systemctl restart httpd'''
+            }
+        }
+    stage('Post_Build') {
+            steps {
+                echo 'Build is successfully completed'
+            }
+        }
+    }
+}
