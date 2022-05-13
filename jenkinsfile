@@ -15,7 +15,7 @@ pipeline {
         }
     stage('Post_Build') {
             steps {
-                echo 'Build is successfully completed'
+                echo 'Build is successfully completed '
             }
         }
     }
